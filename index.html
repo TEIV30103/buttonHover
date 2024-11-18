@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="button" id="hoverButton">
+        <span>Console Games</span>
+    </div>
+</body>
+<script>
+    const button = document.getElementById('hoverButton');
+
+    button.addEventListener('mousemove', (e) => {
+        const rect = button.getBoundingClientRect();
+        const x = e.clientX - rect.left; // Tọa độ X của chuột
+        const y = e.clientY - rect.top; // Tọa độ Y của chuột
+
+        button.style.setProperty('--x', `${x}px`);
+        button.style.setProperty('--y', `${y}px`);
+    });
+</script>
+</html>

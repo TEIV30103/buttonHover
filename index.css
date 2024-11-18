@@ -1,0 +1,46 @@
+.button {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: black;
+    color: white; /* Màu chữ ban đầu */
+    border-radius: 10px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: color 0.3s ease;
+}
+
+.button::before {
+    content: '';
+    position: absolute;
+    top: var(--y);
+    left: var(--x);
+    width: 300%;
+    height: 300%;
+    background-color: white; /* Màu khi hover */
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.3s ease;
+    z-index: 0; /* Đặt z-index thấp hơn chữ */
+}
+
+.button:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.button:hover {
+    border: 1px solid black; /* Đổi màu viền thành đen khi hover */
+    border-radius: 10px;
+    color: black; /* Đổi màu chữ thành đen khi hover */
+}
+
+/* Đảm bảo chữ luôn nằm trên hiệu ứng */
+.button:hover {
+    z-index: 1; /* Đặt z-index cao hơn */
+}
+
+/* Đảm bảo chữ không bị che khuất */
+.button span {
+    position: relative; /* Đặt vị trí tương đối cho chữ */
+    z-index: 2; /* Đặt z-index cao hơn để chữ luôn hiển thị */
+}
